@@ -24,17 +24,14 @@ cd ~
 wget -O opencv.zip https://github.com/opencv/opencv/archive/4.0.0.zip
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip
 
-$ unzip opencv.zip
-$ unzip opencv_contrib.zip
-
-$ mv opencv-4.0.0 opencv
-$ mv opencv_contrib-4.0.0 opencv_contrib
-
-$ wget https://bootstrap.pypa.io/get-pip.py
-$ sudo python3 get-pip.py
-
-$ sudo pip install virtualenv virtualenvwrapper
-$ sudo rm -rf ~/get-pip.py ~/.cache/pip
+unzip opencv.zip
+unzip opencv_contrib.zi
+mv opencv-4.0.0 opencv
+mv opencv_contrib-4.0.0 opencv_contri
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.p
+sudo pip install virtualenv virtualenvwrapper
+sudo rm -rf ~/get-pip.py ~/.cache/pip
 
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
