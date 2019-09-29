@@ -22,7 +22,7 @@ rawCapture = PiRGBArray(camera, size=camera.resolution)
 
 # allow the camera to warmup, then initialize the average frame, last
 # uploaded timestamp, and frame motion counter
-print()"warming up...")
+print("warming up...")
 time.sleep(10)
 avg = None
 lastUploaded = datetime.datetime.now()
