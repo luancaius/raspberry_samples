@@ -4,7 +4,7 @@ sudo apt-get -y clean
 sudo apt-get -y autoremove
 
 echo "OpenCV installation by learnOpenCV.com"
-cvVersion="masrer"
+cvVersion="master"
 
 # Clean build directories
 rm -rf opencv/build
