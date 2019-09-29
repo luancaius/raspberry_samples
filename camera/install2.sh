@@ -4,21 +4,21 @@ sudo apt-get clean
 sudo apt-get autoremove
 
 
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade -y
 
-sudo apt-get install build-essential cmake unzip pkg-config
+sudo apt-get install build-essential cmake unzip pkg-config -y
 
-sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
-sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-sudo apt-get install libxvidcore-dev libx264-dev
+sudo apt-get install libjpeg-dev libpng-dev libtiff-dev -y
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
+sudo apt-get install libxvidcore-dev libx264-dev -y
 
-sudo apt-get install libgtk-3-dev
+sudo apt-get install libgtk-3-dev -y
 
-sudo apt-get install libcanberra-gtk*
+sudo apt-get install libcanberra-gtk* -y
 
-sudo apt-get install libatlas-base-dev gfortran
+sudo apt-get install libatlas-base-dev gfortran -y
 
-sudo apt-get install python3-dev
+sudo apt-get install python3-dev -y
 
 cd ~
 wget -O opencv.zip https://github.com/opencv/opencv/archive/4.0.0.zip
