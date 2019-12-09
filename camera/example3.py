@@ -2,21 +2,20 @@ import picamera
 import time
 from datetime import datetime
 import cv2 
+import picamera.array
 
-camera = picamera.PiCamera()
-rawCapture = PiRGBArray(camera)
 time.sleep(0.1)
 
 interval=30
 continueCapture = True
-start=datetime(2019, 11, 4,0,30)
-end=datetime(2019, 11, 4,6,30)
+start=datetime(2019, 12, 8,21,40)
+end=datetime(2019, 12, 8,21,45)
 timeStart = start.timestamp()
 timeEnd = end.timestamp()
 
 index=0
 
-prevImage = NULL
+prevImage = None
 with picamera.PiCamera() as camera:
     with picamera.array.PiRGBArray(camera) as stream:
 
