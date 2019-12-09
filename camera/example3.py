@@ -8,12 +8,13 @@ time.sleep(0.1)
 
 interval=30
 continueCapture = True
-start=datetime(2019, 12, 8,21,40)
-end=datetime(2019, 12, 8,21,45)
+start=datetime(2019, 12, 8,23,10)
+end=datetime(2019, 12, 8,23,13)
 timeStart = start.timestamp()
 timeEnd = end.timestamp()
 
 index=0
+threshold=100
 
 prevImage = None
 with picamera.PiCamera() as camera:
@@ -28,11 +29,11 @@ with picamera.PiCamera() as camera:
             if diffStart > 0:
                 index+=1
                 camera.capture(stream, 'bgr', use_video_port=True)
-                # stream.array now contains the image data in BGR order
-                # cv2.imshow('frame', stream.array)
-
-                cv2.imwrite('{}.png'.format(now), stream.array)
-                # reset the stream before the next capture
+                currentImage=stream.array
+                delta=calculateDelta(currentImage,prevImage)
+                if delta > threshold:
+                    cv2.imwrite('videos2/{}.png'.format(now), stream.array)
+                prevImage = currentImage
                 stream.seek(0)
                 stream.truncate()
 
@@ -42,3 +43,11 @@ with picamera.PiCamera() as camera:
             else:
                 continueCapture = False
 print('Program finished!')
+
+def calculateDelta(currentImage, prevImage):
+    if prevImage is None:
+        return 0
+    err = np.sum((imageA.astype("float") - imageB.astype("float")) ** 2)
+	err /= float(imageA.shape[0] * imageA.shape[1])
+    print(err)
+    return 90
