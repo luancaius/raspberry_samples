@@ -1,6 +1,7 @@
 import picamera
 import time
 from datetime import datetime
+import cv2 
 
 camera = picamera.PiCamera()
 rawCapture = PiRGBArray(camera)
@@ -29,9 +30,9 @@ with picamera.PiCamera() as camera:
                 index+=1
                 camera.capture(stream, 'bgr', use_video_port=True)
                 # stream.array now contains the image data in BGR order
-                //cv2.imshow('frame', stream.array)
-                if cv2.waitKey(1) & 0xFF == ord('q'):
-                    break
+                # cv2.imshow('frame', stream.array)
+
+                cv2.imwrite('{}.png'.format(now), stream.array)
                 # reset the stream before the next capture
                 stream.seek(0)
                 stream.truncate()
