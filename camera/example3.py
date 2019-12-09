@@ -3,13 +3,22 @@ import time
 from datetime import datetime
 import cv2 
 import picamera.array
+import numpy as np
+
+def calculateDelta(currentImage, prevImage):
+    if prevImage is None:
+        return 0
+    err = np.sum((currentImage.astype("float") - prevImage.astype("float")) ** 2)
+    err /= float(currentImage.shape[0] * currentImage.shape[1])
+    print(err)
+    return err 
 
 time.sleep(0.1)
 
 interval=30
 continueCapture = True
-start=datetime(2019, 12, 8,23,10)
-end=datetime(2019, 12, 8,23,13)
+start=datetime(2019, 12, 8,23,59)
+end=datetime(2019, 12, 9,6,00)
 timeStart = start.timestamp()
 timeEnd = end.timestamp()
 
@@ -44,10 +53,3 @@ with picamera.PiCamera() as camera:
                 continueCapture = False
 print('Program finished!')
 
-def calculateDelta(currentImage, prevImage):
-    if prevImage is None:
-        return 0
-    err = np.sum((imageA.astype("float") - imageB.astype("float")) ** 2)
-	err /= float(imageA.shape[0] * imageA.shape[1])
-    print(err)
-    return 90
